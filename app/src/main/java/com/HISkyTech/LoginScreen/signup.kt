@@ -46,7 +46,7 @@ btnsignup.setOnClickListener(){
 
                 Toast.makeText(this@signup, "SignUp Successfull", Toast.LENGTH_SHORT)
                     .show()
-
+                   startActivity(Intent(this@signup,Login::class.java))
 
             }
 
