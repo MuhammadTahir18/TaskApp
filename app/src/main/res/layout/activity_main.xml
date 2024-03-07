@@ -17,7 +17,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_below="@+id/view"
-         android:src="@drawable/mbile"/>
+         android:src="@drawable/img1"/>
     <TextView
         android:layout_below="@+id/imgg"
         android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
        android:layout_height="wrap_content"
      android:layout_below="@+id/tv1"
        android:layout_marginTop="30dp"
-     android:background="@drawable/btn_bg"
+
        android:text="Get Started"
 
        android:textColor="@color/white"

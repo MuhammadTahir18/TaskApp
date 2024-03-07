@@ -2,7 +2,8 @@ package com.HISkyTech.LoginScreen
 
 data class loginmodel(
 
-    var email:String="",
-    var password:String="",
-     var  docID:String=""
+    var mail:String="",
+    var pasword:String="",
+    var name:String="",
+     var userid:String=""
 )
