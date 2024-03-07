@@ -19,12 +19,14 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+binding.signup.setOnClickListener(){
+    startActivity(Intent(this,signup::class.java))
+}
 
 
+        binding.lgn.setOnClickListener() {
 
-        binding.btnsignup.setOnClickListener() {
-
-            val email = binding.etemail.text.toString()
+            val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
 

@@ -15,7 +15,9 @@ class signup : AppCompatActivity() {
         binding= ActivitySignupBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+binding.sgnin.setOnClickListener(){
+    startActivity(Intent(this,Login::class.java))
+}
 
 
 
