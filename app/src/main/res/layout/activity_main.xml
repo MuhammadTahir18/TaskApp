@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_marginHorizontal="30dp"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Ui.MainActivity">
 <View
     android:layout_width="match_parent"
     android:layout_height="150dp"
@@ -44,9 +44,8 @@
        android:layout_height="wrap_content"
      android:layout_below="@+id/tv1"
        android:layout_marginTop="30dp"
-
        android:text="Get Started"
-
+       android:id="@+id/nextbtn"
        android:textColor="@color/white"
        android:textStyle="bold"
        app:backgroundTint="#2196F3"

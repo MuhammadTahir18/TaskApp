@@ -43,7 +43,7 @@
             android:textColor="@color/white"
             android:hint="Description"
             android:textColorHint="@color/white"
-            android:id="@+id/userEmail"
+            android:id="@+id/descript"
             android:paddingStart="10dp" />
         <EditText
             android:layout_width="match_parent"

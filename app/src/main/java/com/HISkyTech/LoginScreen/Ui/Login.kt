@@ -1,4 +1,4 @@
-package com.HISkyTech.LoginScreen
+package com.HISkyTech.LoginScreen.Ui
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.HISkyTech.LoginScreen.databinding.ActivityLoginBinding
-import com.HISkyTech.LoginScreen.databinding.ActivitySignupBinding
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
-import kotlinx.coroutines.flow.combine
 
 class Login : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -53,7 +51,7 @@ class Login : AppCompatActivity() {
                                     editor.apply()
 
                                     Toast.makeText(this@Login, "Login Successful", Toast.LENGTH_SHORT).show()
-                                    startActivity(Intent(this@Login,MainActivity::class.java))
+                                    startActivity(Intent(this@Login, MainActivity::class.java))
                                     finish()
                                 } else {
                                     Toast.makeText(this@Login, "Invalid email or password", Toast.LENGTH_SHORT).show()

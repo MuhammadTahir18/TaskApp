@@ -7,7 +7,7 @@
 
 
     android:layout_height="match_parent"
-    tools:context=".signup">
+    tools:context=".Ui.signup">
 
     <ImageView
         android:id="@+id/img"

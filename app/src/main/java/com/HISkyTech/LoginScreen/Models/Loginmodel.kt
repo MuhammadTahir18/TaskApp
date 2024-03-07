@@ -1,4 +1,4 @@
-package com.HISkyTech.LoginScreen
+package com.HISkyTech.LoginScreen.Models
 
 data class loginmodel(
 

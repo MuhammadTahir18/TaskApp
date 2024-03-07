@@ -1,10 +1,11 @@
-package com.HISkyTech.LoginScreen
+package com.HISkyTech.LoginScreen.Ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.HISkyTech.LoginScreen.databinding.ActivitySignupBinding
+import com.HISkyTech.LoginScreen.Models.loginmodel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
@@ -21,7 +22,7 @@ class signup : AppCompatActivity() {
 binding.apply {
 btnsignup.setOnClickListener(){
 
-   var usermodel=loginmodel()
+   var usermodel= loginmodel()
 
     if (email.text.toString().isEmpty() && password.text.toString().isEmpty() && name.text.toString().isEmpty()
     ) {
@@ -46,7 +47,7 @@ btnsignup.setOnClickListener(){
 
                 Toast.makeText(this@signup, "SignUp Successfull", Toast.LENGTH_SHORT)
                     .show()
-                   startActivity(Intent(this@signup,Login::class.java))
+                   startActivity(Intent(this@signup, Login::class.java))
 
             }
 

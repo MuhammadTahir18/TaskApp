@@ -13,7 +13,7 @@
         android:theme="@style/Theme.LoginScreen"
         tools:targetApi="31">
         <activity
-            android:name=".Splash_screen"
+            android:name=".Ui.Splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,18 +22,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".Ui.Home"
             android:exported="false"/>
         <activity
-            android:name=".signup"
+            android:name=".Ui.signup"
             android:exported="false"/>
 
 
         <activity
-            android:name=".Login"
+            android:name=".Ui.Login"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Ui.MainActivity"
             android:exported="false"/>
     </application>
 

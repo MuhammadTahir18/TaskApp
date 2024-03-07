@@ -1,4 +1,4 @@
-package com.HISkyTech.LoginScreen
+package com.HISkyTech.LoginScreen.Ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import com.HISkyTech.LoginScreen.R
 
 class Splash_screen : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 2000
@@ -22,9 +23,9 @@ class Splash_screen : AppCompatActivity() {
             if (!sharedPref.getBoolean("IsLog",false))
             {
                 Toast.makeText(this, sharedPref.getBoolean("IsLog",false).toString(), Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,Login::class.java))
+                startActivity(Intent(this, Login::class.java))
             } else {
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             }
             finish()
         },SPLASH_TIME_OUT)
