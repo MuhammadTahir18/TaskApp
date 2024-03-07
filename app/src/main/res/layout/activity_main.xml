@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_marginHorizontal="30dp"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+<View
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/view"/>
+    <ImageView
+        android:id="@+id/imgg"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/view"
+         android:src="@drawable/mbile"/>
+    <TextView
+        android:layout_below="@+id/imgg"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="Get things done with TODOO"
+        android:textStyle="bold"
+        android:id="@+id/tv"
+       android:textColor="@color/black"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_below="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Using an app to keep track of your to-do list is an incredibly effective method for staying on schedule and up-to-date with everything your work and social life throws at you. "
+        android:id="@+id/tv1"
+        android:layout_marginHorizontal="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+   <com.google.android.material.button.MaterialButton
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+     android:layout_below="@+id/tv1"
+       android:layout_marginTop="30dp"
+     android:background="@drawable/btn_bg"
+       android:text="Get Started"
+
+       android:textColor="@color/white"
+       android:textStyle="bold"
+       app:backgroundTint="#2196F3"
+       android:layout_marginHorizontal="30dp"/>
 
 
 
 
-
-
-
-
-</LinearLayout>
+</RelativeLayout>
