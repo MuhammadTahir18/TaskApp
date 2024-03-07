@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "477425558414",
+    "project_id": "taskbb-37664",
+    "storage_bucket": "taskbb-37664.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477425558414:android:8254ebbc4e14c1ecb1fadf",
+        "android_client_info": {
+          "package_name": "com.HISkyTech.LoginScreen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChvD8B5wPMJxqEkCAZ59z_Uy4hSi_5odg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477425558414:android:d33cc0269c2e4ef7b1fadf",
+        "android_client_info": {
+          "package_name": "com.firstproject.tab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChvD8B5wPMJxqEkCAZ59z_Uy4hSi_5odg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
