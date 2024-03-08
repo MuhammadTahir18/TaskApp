@@ -12,6 +12,8 @@ tools:showIn="navigation_view"
 <item
     android:id="@+id/contact"
     android:title="Contact Us"
+
+
     android:icon="@drawable/baseline_call_24"
     />
 
