@@ -3,34 +3,110 @@ package com.HISkyTech.LoginScreen.Ui
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import com.HISkyTech.LoginScreen.Models.task_model
 import com.HISkyTech.LoginScreen.R
 import com.HISkyTech.LoginScreen.databinding.ActivityHomeBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
 class Home : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var dialog: AlertDialog
+    private lateinit var sharedPreferences: SharedPreferences
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
+    lateinit var toolbar: Toolbar
     private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        sharedPreferences = getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
+        val editor=sharedPreferences.edit()
+
+
+        drawerLayout = findViewById(R.id.drawerlayout)
+        navigationView = findViewById(R.id.navigationView)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.open, R.string.close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+
+
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Handle navigation item clicks here
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@Home,Home::class.java))
+
+                }
+
+                R.id.contact -> {
+                    Toast.makeText(this, "Contact us", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                R.id.fav -> {
+                    Toast.makeText(this, "Favorite", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                R.id.share -> {
+                    Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show()
+                }
+                R.id.rat -> {
+                    Toast.makeText(this, "Rate Us", Toast.LENGTH_SHORT).show()
+                }
+                R.id.theme -> {
+                    Toast.makeText(this, "Theme", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                R.id.noti -> {
+                    Toast.makeText(this, "Notification", Toast.LENGTH_SHORT).show()
+                }
+                R.id.rem -> {
+                    Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.logout-> {
+                    editor.putBoolean("IsLoggedIn",false)
+                    editor.apply()
+                    startActivity(Intent(this@Home,Login::class.java))
+                    Toast.makeText(this, "logout successfull", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+            drawerLayout.closeDrawers()
+            true
+
+    }
 
         binding.addTask.setOnClickListener {
             showChoiceDialog()
-        }
-    }
-
+        }}
     private fun showChoiceDialog() {
         val builder = AlertDialog.Builder(this)
 

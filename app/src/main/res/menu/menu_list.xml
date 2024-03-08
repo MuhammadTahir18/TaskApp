@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+tools:showIn="navigation_view"
+    >
+<item
+    android:id="@+id/home"
+    android:title="Home"
+    android:icon="@drawable/baseline_home_24"
+    />
+
+<item
+    android:id="@+id/contact"
+    android:title="Contact Us"
+    android:icon="@drawable/baseline_call_24"
+    />
+
+<item
+    android:id="@+id/fav"
+    android:title="Favorite"
+    android:icon="@drawable/baseline_favorite_24"
+    />
+
+
+<item
+    android:id="@+id/share"
+    android:title="Share"
+    android:icon="@drawable/baseline_share_24"
+    />
+<item
+    android:id="@+id/rat"
+    android:title="Rate us"
+    android:icon="@drawable/baseline_star_rate_24"
+
+    />
+<item android:title="Setting">
+
+    <menu>
+        <item
+            android:id="@+id/theme"
+            android:title="Theme"
+            android:icon="@drawable/baseline_brush_24"
+            /><item
+            android:id="@+id/noti"
+            android:title="Notification"
+            android:icon="@drawable/baseline_notifications_none_24"
+            /><item
+            android:id="@+id/rem"
+            android:title="Reminder"
+            android:icon="@drawable/baseline_notifications_active_24"
+            />
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/baseline_logout_24"
+            />
+    </menu>
+</item>
+</menu>
