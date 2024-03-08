@@ -5,10 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Home">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/tvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#C4CCD2" />
 <LinearLayout
 android:layout_width="match_parent"
 android:layout_height="180dp"
     android:id="@+id/layout"
+    android:layout_below="@id/tvSearch"
     android:gravity="center"
     android:background="@color/primary"
 android:orientation="vertical">
@@ -33,19 +39,10 @@ android:orientation="vertical">
         android:layout_below="@+id/layout"
         android:id="@+id/layout2"
         android:orientation="vertical">
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#697D8C"
-        android:id="@+id/tvSearch"/>
-<TextView
-    android:id="@+id/view"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="ViewTasks"
-    android:layout_gravity="end"
-    android:layout_marginEnd="10dp"
-    android:textStyle="bold"/>
+
+
+
+
     </LinearLayout>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
