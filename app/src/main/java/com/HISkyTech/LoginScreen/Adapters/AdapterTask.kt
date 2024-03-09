@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.HISkyTech.LoginScreen.Models.task_model
 import com.HISkyTech.LoginScreen.R
@@ -40,16 +41,14 @@ class AdapterTask (
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val task_title: TextView = itemView.findViewById(R.id.task_name)
-//        private val description: TextView = itemView.findViewById(R.id.view)
+        private val container: CardView = itemView.findViewById(R.id.containeruser)
 
-        private val deleteButton: Button = itemView.findViewById(R.id.remove_user)
-        private val editbtn: Button = itemView.findViewById(R.id.update_user)
 
 
         init {
 
-            editbtn.setOnClickListener { listener.onEditClick(list[adapterPosition]) }
-            deleteButton.setOnClickListener { listener.onDeleteClick(list[adapterPosition]) }
+            container.setOnClickListener { listener.onItemClick(list[adapterPosition]) }
+
         }
         @SuppressLint("SuspiciousIndentation")
         fun bind(taskModel: task_model) {
@@ -65,5 +64,11 @@ class AdapterTask (
 
         }
 
+    }
+
+    companion object {
+        fun notifyDataSetChanged() {
+
+        }
     }
 }
