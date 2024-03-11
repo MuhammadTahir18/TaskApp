@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/email"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="5dp"
         android:paddingStart="5dp"
         android:hint="Enter your Email"
@@ -67,7 +68,17 @@
         android:background="@drawable/back"
         android:layout_marginHorizontal="30dp"
         />
-
+    <TextView
+        android:id="@+id/tvforgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textSize="15sp"
+        android:textColor="#289F2D"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginVertical="10dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -101,5 +112,6 @@ android:layout_marginTop="20dp"
             android:textColor="#237870"
             android:layout_marginVertical="10dp"/>
     </LinearLayout>
+
 
 </LinearLayout>
