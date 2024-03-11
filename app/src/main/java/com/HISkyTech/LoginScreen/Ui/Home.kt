@@ -11,19 +11,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils
+import android.view.Menu
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.Toolbar
 import androidx.compose.ui.text.toUpperCase
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.HISkyTech.LoginScreen.Adapters.AdapterTask
 import com.HISkyTech.LoginScreen.Models.task_model
 import com.HISkyTech.LoginScreen.R
 import com.HISkyTech.LoginScreen.databinding.ActivityHomeBinding
 import com.bumptech.glide.Glide
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import java.util.Locale
@@ -31,6 +36,9 @@ import java.util.Locale
 
 class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
     private lateinit var binding: ActivityHomeBinding
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
+    lateinit var toolbar: Toolbar
      private lateinit var dialog: Dialog
     private val IMAGE_PICKER_REQUEST_CODE = 123
     private var imageURI: Uri? = null
@@ -45,20 +53,63 @@ class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+/////////////////initialize shared preference/////////////////
+        val sharedPreferences = getSharedPreferences("preference", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+///////////////////////////// drawer layout code//////////////////////
+        drawerLayout = findViewById(R.id.drawer)
+        navigationView = findViewById(R.id.nav)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.open, R.string.close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Handle navigation item clicks here
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
+
+                }
+
+                R.id.setting -> {
+                    Toast.makeText(this, "About clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.contact -> {
+                    Toast.makeText(this, "Contact us clicked", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                R.id.login->{
+                    startActivity(Intent(this,Login::class.java))
+                    finish()
+                }
+                R.id.logout->{
+
+                    editor.putBoolean("IsLog",false)
+                    editor.apply()
+                    startActivity(Intent(this,signup::class.java))
+                    finish()
+                }
 
 
+            }
+            drawerLayout.closeDrawers()
+            true
+        }
+
+
+        /////////// image picker////////////
         binding.iamgetodo.setOnClickListener{
             val pickImage =
                 Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(pickImage, IMAGE_PICKER_REQUEST_CODE)
         }
-
-
-
-
-
-
-
+        ///// task add code///////
 
         binding.addTask.setOnClickListener {
             showChoiceDialog()
@@ -79,6 +130,7 @@ class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
         })
 
     }
+    ///////////////search code/////////////////
     private fun filter(text: String) {
         val filteredList = ArrayList<task_model>()
 
@@ -99,8 +151,6 @@ class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
             binding.rv.adapter = AdapterTask(this, filteredList, this@Home)
         }
     }
-
-
 
     private fun showChoiceDialog() {
         val builder = AlertDialog.Builder(this)
@@ -162,8 +212,6 @@ class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
 // ...
 
     }
-
-
     private fun taskAdd(model: task_model) {
 
         val sharedPreferences = getSharedPreferences("preference", Context.MODE_PRIVATE)
@@ -315,11 +363,7 @@ class Home : AppCompatActivity() ,AdapterTask.OnItemClickListener {
                  Toast.makeText(this, "Failure", Toast.LENGTH_SHORT).show()
              }
      }
-     override fun onEditClick(taskModel: task_model) {
 
-        }
-     override fun onDeleteClick(taskModel: task_model) {
-     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_PICKER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {

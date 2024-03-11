@@ -149,9 +149,9 @@ android:inputType="textWebPassword"
       android:layout_marginVertical="10dp"/>
     </LinearLayout>
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:id="@+id/google"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:src="@drawable/google"
         android:layout_gravity="center"/>
 

@@ -22,8 +22,8 @@ class AdapterTask (
     interface OnItemClickListener {
 
         fun onItemClick(taskModel: task_model)
-        fun onDeleteClick(taskModel: task_model)
-        fun onEditClick(taskModel: task_model)
+
+
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
